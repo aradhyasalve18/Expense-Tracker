@@ -1,0 +1,108 @@
+import { useState } from "react";
+
+export default function Signup({ onLogin, onGoLogin }) {
+  const [form,    setForm]    = useState({ name: "", email: "", password: "", confirm: "" });
+  const [error,   setError]   = useState("");
+  const [loading, setLoading] = useState(false);
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setError("");
+    if (!form.name.trim())       return setError("Name is required");
+    if (!form.email.trim())      return setError("Email is required");
+    if (!form.password)           return setError("Password is required");
+    if (form.password.length < 6) return setError("Password must be at least 6 characters");
+    if (form.password !== form.confirm) return setError("Passwords do not match");
+
+    setLoading(true);
+    try {
+      const res = await fetch("http://localhost:5000/api/auth/register", {
+        method:  "POST",
+        headers: { "Content-Type": "application/json" },
+        body:    JSON.stringify({ name: form.name, email: form.email, password: form.password }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Signup failed");
+
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user",  JSON.stringify(data.user));
+      onLogin(data.user, data.token);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  return (
+    <div className="auth-page">
+      <div className="auth-card">
+        <div className="auth-brand">
+          <span className="auth-brand__icon">💸</span>
+          <h1 className="auth-brand__title">Kharcha</h1>
+          <p className="auth-brand__sub">Track every rupee</p>
+        </div>
+
+        <h2 className="auth-title">Create account</h2>
+        <p className="auth-subtitle">Start tracking your expenses</p>
+
+        <form onSubmit={handleSubmit} className="auth-form">
+          <div className="auth-form__row">
+            <label className="auth-form__label">Full Name</label>
+            <input
+              className="auth-form__input"
+              type="text"
+              placeholder="Aradhya"
+              value={form.name}
+              onChange={e => setForm({ ...form, name: e.target.value })}
+              autoFocus
+            />
+          </div>
+          <div className="auth-form__row">
+            <label className="auth-form__label">Email</label>
+            <input
+              className="auth-form__input"
+              type="email"
+              placeholder="you@example.com"
+              value={form.email}
+              onChange={e => setForm({ ...form, email: e.target.value })}
+            />
+          </div>
+          <div className="auth-form__row">
+            <label className="auth-form__label">Password</label>
+            <input
+              className="auth-form__input"
+              type="password"
+              placeholder="Min. 6 characters"
+              value={form.password}
+              onChange={e => setForm({ ...form, password: e.target.value })}
+            />
+          </div>
+          <div className="auth-form__row">
+            <label className="auth-form__label">Confirm Password</label>
+            <input
+              className="auth-form__input"
+              type="password"
+              placeholder="••••••••"
+              value={form.confirm}
+              onChange={e => setForm({ ...form, confirm: e.target.value })}
+            />
+          </div>
+
+          {error && <div className="auth-error">❌ {error}</div>}
+
+          <button className="auth-btn" type="submit" disabled={loading}>
+            {loading ? "Creating account…" : "Create Account"}
+          </button>
+        </form>
+
+        <p className="auth-switch">
+          Already have an account?{" "}
+          <button className="auth-switch__link" onClick={onGoLogin}>
+            Sign in
+          </button>
+        </p>
+      </div>
+    </div>
+  );
+}
