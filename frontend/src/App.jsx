@@ -3,7 +3,7 @@ import Analytics from "./Analytics.jsx";
 import Login     from "./Login.jsx";
 import Signup    from "./Signup.jsx";
 
-const BASE = "http:// https://expense-tracker-6nhi.onrender.com";
+const BASE = "https://expense-tracker-6nhi.onrender.com";
 
 const CATEGORIES = ["Food","Transport","Shopping","Entertainment","Health","Utilities","Other"];
 const CAT_ICONS  = { Food:"🍜", Transport:"🚌", Shopping:"🛍️", Entertainment:"🎬", Health:"💊", Utilities:"💡", Other:"📌" };

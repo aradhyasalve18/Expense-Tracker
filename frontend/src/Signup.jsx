@@ -16,7 +16,7 @@ export default function Signup({ onLogin, onGoLogin }) {
 
     setLoading(true);
     try {
-      const res = await fetch("http:// https://expense-tracker-6nhi.onrender.com/api/auth/register", {
+      const res = await fetch("https://expense-tracker-6nhi.onrender.com/api/auth/register", {
         method:  "POST",
         headers: { "Content-Type": "application/json" },
         body:    JSON.stringify({ name: form.name, email: form.email, password: form.password }),
