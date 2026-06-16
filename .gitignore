@@ -34,3 +34,7 @@ Thumbs.db
 
 # Misc
 *.local
+
+Expense.csv
+Users.csv
+migrate.js

@@ -164,7 +164,7 @@ input, select { font-family: inherit; }
   border-radius: var(--radius-sm); padding: 5px; width: fit-content;
 }
 .tab { background: none; border: none; padding: 8px 20px; border-radius: 8px; font-size: 14px; font-weight: 600; color: var(--text-2); transition: background 0.16s, color 0.16s; }
-.tab:hover   { background: var(--surface2); }
+.tab:hover   { background: var(--surface2); color:#000 }
 .tab--active { background: var(--accent); color: #fff; }
 
 /* Summary chips */
