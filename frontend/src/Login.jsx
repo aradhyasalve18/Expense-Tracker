@@ -37,7 +37,7 @@ export default function Login({ onLogin, onGoSignup }) {
       <div className="auth-card">
         <div className="auth-brand">
           <span className="auth-brand__icon">💸</span>
-          <h1 className="auth-brand__title">Kharcha</h1>
+          <h1 className="auth-brand__title">Expense Tracker</h1>
           <p className="auth-brand__sub">Track every rupee</p>
         </div>
 

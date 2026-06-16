@@ -182,8 +182,8 @@ export default function App() {
         <div className="header__brand">
           <span className="header__icon">💸</span>
           <div>
-            <h1 className="header__title">Kharcha</h1>
-            <p className="header__sub">Expense Tracker</p>
+            <h1 className="header__title">Expense Tracker</h1>
+            {/* <p className="header__sub">Expense Tracker</p> */}
           </div>
         </div>
         <div className="header__right">
