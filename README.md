@@ -1,16 +1,141 @@
-# React + Vite
+# 💰 Expense Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack Expense Tracker web application that helps users securely manage and analyze their daily expenses. The application provides JWT-based authentication, category-wise expense management, and interactive analytics to give users better insights into their spending habits.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* 🔐 Secure User Authentication (JWT)
+* 👤 User Registration & Login
+* ➕ Add, Edit & Delete Expenses
+* 📂 Category-wise Expense Management
+* 📅 Expense History with Date Tracking
+* 📊 Interactive Analytics Dashboard
+* 📱 Responsive UI for Desktop & Mobile
+* 🔒 User-specific Data Isolation
+* ☁️ Cloud Deployment
 
-## React Compiler
+## 🛠️ Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Frontend
 
-## Expanding the ESLint configuration
+* React.js
+* CSS3
+* Axios
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Backend
+
+* Node.js
+* Express.js
+
+### Database
+
+* MongoDB Atlas
+* Mongoose
+
+### Authentication
+
+* JSON Web Tokens (JWT)
+* bcrypt.js
+
+### Deployment
+
+* Frontend: Vercel
+* Backend: Render
+
+## 📁 Project Structure
+
+```
+Expense-Tracker/
+│
+├── frontend/
+│   ├── src/
+│   ├── public/
+│   └── package.json
+│
+├── backend/
+│   ├── models/
+│   ├── routes/
+│   ├── middleware/
+│   ├── server.js
+│   └── package.json
+│
+└── README.md
+```
+
+## ⚙️ Installation
+
+### Clone the repository
+
+```bash
+git clone <repository-url>
+cd Expense-Tracker
+```
+
+### Backend Setup
+
+```bash
+cd backend
+npm install
+```
+
+Create a `.env` file:
+
+```env
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+PORT=5000
+FRONTEND_URL=http://localhost:5173
+```
+
+Run the backend:
+
+```bash
+npm run dev
+```
+
+### Frontend Setup
+
+```bash
+cd frontend
+npm install
+```
+
+Create a `.env` file:
+
+```env
+VITE_API_URL=http://localhost:5000
+```
+
+Run the frontend:
+
+```bash
+npm run dev
+```
+
+## 🌐 Deployment
+
+* **Frontend:** Vercel
+* **Backend:** Render
+* **Database:** MongoDB Atlas
+
+## 🎯 Future Improvements
+
+* Expense Budget Planning
+* Monthly Reports & Export (PDF/Excel)
+* Email Notifications
+* Dark Mode
+* Currency Selection
+* Recurring Expenses
+* Advanced Charts & Insights
+
+## 👨‍💻 Author
+
+**Aradhya Salve**
+
+Computer Engineering Student | Full Stack Developer
+
+Passionate about building practical web applications and continuously learning modern web technologies.
+
+---
+
+⭐ If you found this project useful, consider giving it a star on GitHub!
